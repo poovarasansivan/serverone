@@ -21,11 +21,23 @@ const courseSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  course1completedsemester: {
+    type: String,
+    required: true,
+  },
   coursename2: {
     type: String,
     required: true,
   },
+  course2completedsemester: {
+    type: String,
+    required: true,
+  },
   coursename3: {
+    type: String,
+    required: true,
+  },
+  course3completedsemester: {
     type: String,
     required: true,
   },

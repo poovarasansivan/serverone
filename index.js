@@ -18,6 +18,8 @@ import getStudent from "./routes/studentmaster/getstudent.js";
 import getmycoursecount from "./routes/home/myregistercourse/index.js";
 import studentdelete from "./routes/studentmaster/delete.js";
 import Individualcourse from "./routes/onecreditmaster/getindividualcourse.js";
+import Individualapprove from "./routes/registercourse/individualcourse.js";
+
 const app = express();
 app.use(cors()); // Use cors middleware
 app.use(express.json());
@@ -35,6 +37,7 @@ app.use("/getstudentdetails", getStudent);
 app.use("/mycoursecount", getmycoursecount);
 app.use("/addoneCourse",AddCourse);
 app.use("/getmycourse",Individualcourse);
+app.use("/getmyapprovestatus",Individualapprove);
 // File upload and add registration
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -71,8 +74,11 @@ app.post("/addcourse", upload.single("file"), async (request, response) => {
       department: request.body.department,
       semester: request.body.semester,
       coursename1:request.body.coursename1,
+      course1completedsemester:request.body.course1completedsemester,
       coursename2:request.body.coursename2,
+      course2completedsemester:request.body.course2completedsemester,
       coursename3:request.body.coursename3,
+      course3completedsemester:request.body.course3completedsemester,
       file: request.file.path,
       approvalstatus: "1",
       eligiblitystatus: "1",
